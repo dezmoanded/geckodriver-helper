@@ -65,6 +65,7 @@ module Geckodriver
     end
 
     def remove_if_stale
+      return if !File.exists?(binary_path)
       File.delete(binary_path) unless current_or_newer_version?
     end
 
